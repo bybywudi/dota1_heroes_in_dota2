@@ -27,6 +27,7 @@
                 "sniper_headshot_dota1_Modifier"
                 {
                     "Passive"    "1"
+                    "IsHidden"	 "1"
                     "OnAttackLanded"
                     {
                         "Random"
@@ -1928,6 +1929,7 @@
 
             "modifier_last_word_silence"
             {
+                "IsPurgable"		"1"
                 "States"
                 {
                     "MODIFIER_STATE_SILENCED" "MODIFIER_STATE_VALUE_ENABLED"
