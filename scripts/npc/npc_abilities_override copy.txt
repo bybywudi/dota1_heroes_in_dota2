@@ -1,0 +1,437 @@
+"DOTAAbilities"
+{
+	"Version"                "1"
+	"item_aghanims_shard"			"REMOVE"
+	"item_aghanims_shard_roshan"			"REMOVE"
+	"item_recipe_ultimate_scepter"                          "REMOVE"
+	"item_ultimate_scepter"                         "REMOVE"
+	"item_recipe_ultimate_scepter_2"                                "REMOVE"
+	"item_ultimate_scepter_2"                               "REMOVE"
+	"item_ultimate_scepter_roshan"                          "REMOVE"
+
+
+	//=================================================================================================================
+	// Ability: Antimage Mana Break
+	//=================================================================================================================
+	"antimage_mana_break"
+	{
+		"AbilityValues"
+		{
+			"percent_damage_per_burn"		"50"
+			"mana_per_hit"			"28 40 52 64"
+			"mana_per_hit_pct"		
+			{
+				"value"		"0 0 0 0"
+				"special_bonus_unique_antimage_7"	"0"
+			}
+			"illusion_percentage"		"50"
+			"move_slow"				"0 0 0 0"
+			"slow_duration"			"0"
+		}
+	}
+
+	//=================================================================================================================
+	// Ability: Antimage Blink
+	//=================================================================================================================
+	"antimage_blink"
+	{
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"60"
+
+
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+				"AbilityCooldown"				
+				{
+					"value"			"12 9 7 5"
+					"special_bonus_unique_antimage"	"-1"
+				}
+				"AbilityCastRange"			
+				{
+					"value"					"1000 1075 1150 1150"
+					"special_bonus_unique_antimage_3"	"+250"
+				}
+				"min_blink_range"		"200"
+		}
+	}
+
+        	//=================================================================================================================
+	// Ability: Antimage Counterspell
+	//=================================================================================================================
+	"antimage_counterspell"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"magic_resistance"			
+			{
+				"value"			"15 25 35 45"
+				"special_bonus_unique_antimage_4"	"0"
+			}
+			"duration"					"0"
+			"shard_radius"				
+			{
+				"special_bonus_shard"		"0"
+			}
+			"shard_spell_damage_reduction_pct"
+			{
+				"special_bonus_shard"					"0"
+			}
+			"shard_bonus_aura_range"
+			{
+				"special_bonus_shard"	"0"
+			}
+			"shard_bonus_spell_damage_reduction_pct"				
+			{
+				"special_bonus_shard"		"0"
+			}
+			
+		}	
+	}
+
+	//=================================================================================================================
+	// Ability: Juggernaut Blade Dance
+	//=================================================================================================================
+	"juggernaut_blade_dance"
+	{
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+				"blade_dance_crit_chance"	"15 20 25 30"
+				"blade_dance_crit_mult"		"200"
+		}
+	}
+
+	//=================================================================================================================
+	// Ability: Juggernaut Blade Fury
+	//=================================================================================================================
+	"juggernaut_blade_fury"
+	{
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"30 28 26 24"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"110 110 110 110"		
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"blade_fury_damage_tick"	
+			{
+				"value"					"0.2"
+				"CalculateSpellDamageTooltip"	"0"
+			}
+			"blade_fury_radius"			
+			{
+				"value"						"260"
+				"LinkedSpecialBonus"		"special_bonus_unique_juggernaut"
+			}
+			"blade_fury_damage"			
+			{
+				"value"				"80 100 120 140"
+				"LinkedSpecialBonus"		"special_bonus_unique_juggernaut_3"
+			}
+			"duration"					
+			{
+				"value"				"5.0"
+				"special_bonus_unique_juggernaut_4"	"0"
+			}
+		
+		}
+	}
+
+	//=================================================================================================================
+	// Ability: Juggernaut Healing Ward
+	//=================================================================================================================
+	"juggernaut_healing_ward"
+	{
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"350"
+		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
+		
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"60.0 60.0 60.0 60.0"
+		"AbilityDuration"				"25.0"
+	
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"80 100 120 140"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+				"healing_ward_heal_amount"	"2 3 4 5"
+				"healing_ward_movespeed_tooltip"	
+				{
+					"value"	"300"
+				}
+		}
+	}
+
+	//=================================================================================================================
+	// Sniper: Shrapnel
+	//=================================================================================================================
+	"sniper_shrapnel"
+	{
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"900"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"15"
+		"AbilityCharges"				"1"
+		"AbilityChargeRestoreTime"		"15"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"120"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"slow_movement_speed"	"-15 -20 -25 -30"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"360"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"shrapnel_damage"		"12 24 36 48"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"9"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damage_delay"			"0.1"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"slow_duration"			"2.0 2.0 2.0 2.0"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Roshan: Bash
+	//=================================================================================================================
+	"roshan_bash"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"9000"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"MaxLevel"                                        "4"
+		"RequiredLevel"          		  "-3"
+    		"LevelsBetweenUpgrades"  		  "2"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"bash_chance"		"40 40 40 40"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"bonus_damage"		"15 40 65 90"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"stun_duration"		"1"
+			}
+		}
+	}
+	
+	//=================================================================================================================
+	// Sniper: Headshot
+	//=================================================================================================================
+	"sniper_headshot"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"5155"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"15 40 65 90"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+
+			"01"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"proc_chance"					"40"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"knockback_distance"					"0"
+				"LinkedSpecialBonus"	"special_bonus_unique_sniper_3"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"slow"			"0"
+			}
+			"04"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"slow_duration"					"0"
+			}			
+			
+		}
+		"Modifiers"
+		{
+			"modifier_sniper_headshot"
+			{
+				"States"
+				{
+					"MODIFIER_STATE_UNSELECTABLE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_OUT_OF_GAME"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Sniper: Take Aim
+	//=================================================================================================================
+	"sniper_take_aim"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"5156"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"FightRecapLevel"				"1"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"50"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"bonus_attack_range"			"75 150 225 300"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
+	}
+	
+	//=================================================================================================================
+	// Sniper: Assassinate
+	//=================================================================================================================
+	"sniper_assassinate"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"5157"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"FightRecapLevel"				"2"
+		"HasScepterUpgrade"					"1"
+		"AbilitySound"					"Ability.Assassinate"
+
+		"AbilityDraftUltShardAbility"		"sniper_concussive_grenade"
+
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"3000"
+		"AbilityCastRangeBuffer"		"600"
+		"AbilityCastPoint"				"2"
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_4"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"20 15 10"
+
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"320 485 650"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"175 225 275"
+		
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityModifierSupportValue"	"0.0"	// Modifier just does damage
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+				"projectile_speed"			"2500 2500 2500"
+				
+				"scepter_stun_duration"			
+				{
+					"value" "1 1.25 1.5"
+					"RequiresScepter"		"1"
+				}
+				"scepter_cast_point"			
+				{
+					"value" "0.5"
+					"RequiresScepter"		"1"
+				}
+		}		
+	}
+
+
+
+}
