@@ -1256,12 +1256,12 @@
 			"01"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"frost_arrows_movement_speed"	"-10 -25 -40 -55"
+				"frost_arrows_movement_speed"	"-11 -24 -37 -60"
 			}
 			"02"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"damage"	"5 10 15 20"
+				"damage"	"0"
 			}
 			"03"
 			{

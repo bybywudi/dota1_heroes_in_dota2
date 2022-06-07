@@ -194,4 +194,23 @@
 		"Ability17"		"special_bonus_unique_silencer_2"
 	}
 
+	"npc_dota_hero_drow_ranger"
+	{
+		"override_hero"                                "npc_dota_hero_drow_ranger"
+		"Ability1"		"drow_ranger_frost_arrows"
+		"Ability2"		"drow_ranger_silence_datadriven"
+		"Ability3"		"drow_ranger_trueshot_datadriven"
+		"Ability4"		"generic_hidden"
+		"Ability5"		"generic_hidden"
+		"Ability6"		"drow_ranger_marksmanship_datadriven"
+		"Ability10"		""
+		"Ability11"		""
+		"Ability12"		""
+		"Ability13"		""
+		"Ability14"		""
+		"Ability15"		""
+		"Ability16"		""
+		"Ability17"		""
+	}
+
 }
