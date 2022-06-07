@@ -24030,7 +24030,7 @@
 	}	
 	
 	//=================================================================================================================
-	// Silencer: Glaives of Wisdom
+	// Silencer: Glaives of Wisdom(DOTA1)
 	//=================================================================================================================
 	"silencer_glaives_of_wisdom"
 	{
@@ -24066,18 +24066,18 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"intellect_damage_pct"	"15 35 55 75"
+				"intellect_damage_pct"	"30 45 60 75"
 				"LinkedSpecialBonus"	"special_bonus_unique_silencer_3"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"int_steal"		"1 1 2 3"
+				"int_steal"		"0 0 0 0"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"int_steal_duration"		"15 20 25 30"
+				"int_steal_duration"		"0 0 0 0"
 			}
 			"04"
 			{
@@ -24106,7 +24106,7 @@
 			"08"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"permanent_int_steal_range"		"925"
+				"permanent_int_steal_range"		"900"
 			}
 			"09"
 			{
@@ -24216,13 +24216,13 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"130 115 100"
-		"AbilityDuration"				"4.5 5.25 6.0"
+		"AbilityCooldown"				"120 120 120"
+		"AbilityDuration"				"4 5 6"
 
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"300 450 600"
+		"AbilityManaCost"				"250 350 450"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
