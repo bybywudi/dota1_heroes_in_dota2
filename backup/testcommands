@@ -1,0 +1,7 @@
+-createhero axe enemy
+-createhero axe enemy
+-createhero axe enemy
+
+-lvlup 25
+-levelbots 25
+-refresh

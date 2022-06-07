@@ -13,4 +13,5 @@
 	"npc_dota_hero_pudge"	"1"
 	"npc_dota_hero_lion"	"1"
 	"npc_dota_hero_phantom_assassin"	"1"
+	"npc_dota_hero_ogre_magi"	"1"
 }

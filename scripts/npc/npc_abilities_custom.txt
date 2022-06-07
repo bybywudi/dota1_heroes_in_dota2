@@ -1119,5 +1119,763 @@
         }
     }
 
+    "ogre_magi_multicast_datadriven"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"				"ability_datadriven"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+        "AbilityTextureName"			"ogre_magi_multicast"
+
+        // Precache
+        //-------------------------------------------------------------------------------------------------------------
+        "precache"
+        {
+            "particle"		"particles/units/heroes/hero_ogre_magi/ogre_magi_multicast.vpcf"
+            "soundfile"		"sounds/weapons/hero/ogre_magi/multicast01.vsnd"
+            "soundfile"		"sounds/weapons/hero/ogre_magi/multicast02.vsnd"
+            "soundfile"		"sounds/weapons/hero/ogre_magi/multicast03.vsnd"
+        }
+        
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"				"FIELD_FLOAT"
+                "multicast_2_times"		"30 45 60"
+            }
+
+            "02"
+            {
+                "var_type"				"FIELD_FLOAT"
+                "multicast_3_times"		"0 22.5 30"
+            }
+
+            "03"
+            {
+                "var_type"				"FIELD_FLOAT"
+                "multicast_4_times"		"0 0 15"
+            }
+
+            "04"
+            {
+                "var_type"			"FIELD_INTEGER"
+                "fireblast_mana_cost"	"30 70 110"
+            }
+
+            "05"
+            {
+                "var_type"			"FIELD_FLOAT"
+                "fireblast_cooldown"	"2 4 6"
+            }
+
+            "06"
+            {
+                "var_type"				"FIELD_FLOAT"
+                "bloodlust_cooldown"	"5 10 15"
+            }
+            
+            "07"
+            {
+                "var_type"				"FIELD_FLOAT"
+                "ignite_range"			"150 300 450"
+            }
+        }
+        
+        "Modifiers"
+        {
+            "modifier_multicast_datadriven"
+            {
+                "Passive"	"1"
+                "IsHidden"	"1"
+                
+                "OnAbilityExecuted"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"		"heroes/hero_ogre_magi/multicast.lua"
+                        "Function"			"Multicast"
+                        "particle"			"particles/units/heroes/hero_ogre_magi/ogre_magi_arcana_multicast.vpcf"
+                        "sound1"			"Hero_OgreMagi.Fireblast.x1"
+                        "sound2"			"Hero_OgreMagi.Fireblast.x2"
+                        "sound3"			"Hero_OgreMagi.Fireblast.x3"
+                    }
+                }
+            }
+        }
+    }
+
+    "ogre_magi_bloodlust_datadriven"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"				"ability_datadriven"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+        "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+        "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
+        "SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES"
+        "AbilityTextureName"			"ogre_magi_bloodlust"
+        
+        // Precache
+        //-------------------------------------------------------------------------------------------------------------
+        "precache"
+        {
+            "particle"		"particles/units/heroes/hero_ogre_magi/ogre_magi_bloodlust_cast.vpcf"
+            "particle"		"particles/units/heroes/hero_ogre_magi/ogre_magi_bloodlust_buff.vpcf"
+            "soundfile"		"sounds/weapons/hero/ogre_magi/bloodlust_cast.vsnd"
+            "soundfile"		"sounds/weapons/hero/ogre_magi/bloodlust_target.vsnd"
+        }
+
+        // Casting
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"				"600"
+        "AbilityCastPoint"				"0.45"
+        
+        // Time		
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"				"20"
+
+        // Cost
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"				"75"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"			"FIELD_FLOAT"
+                "duration"			"30"
+            }
+
+            "02"
+            {
+                "var_type"			"FIELD_FLOAT"
+                "model_scale"		"1.25"
+            }	
+
+            "03"
+            {
+                "var_type"				"FIELD_INTEGER"
+                "bonus_movement_speed"		"10 12 14 16"
+            }
+
+            "04"
+            {
+                "var_type"				"FIELD_INTEGER"
+                "bonus_attack_speed"	"20 30 40 50"
+            }
+            "05"
+            {
+                "var_type"				"FIELD_INTEGER"
+                "multicast_radius"		"575"
+            }
+        }
+        
+        "OnSpellStart"
+        {
+            "ApplyModifier"
+            {
+                "ModifierName"	"modifier_bloodlust_datadriven"
+                "Target"	"TARGET"
+            }
+            
+            "FireEffect"
+            {
+                "EffectName"		"particles/units/heroes/hero_ogre_magi/ogre_magi_bloodlust_cast.vpcf"
+                "EffectAttachType"	"follow_origin"
+                "Target"			"TARGET"
+            }
+            
+            "FireSound"
+            {
+                "EffectName"	"Hero_OgreMagi.Bloodlust.Cast"
+                "Target"		"CASTER"
+            }
+        }
+        
+        "Modifiers"
+        {
+            "modifier_bloodlust_multicast_action"
+            {
+                "IsHidden"	"1"
+                "Duration"	"0.01"
+                
+                "Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+                
+                "OnCreated"
+                {
+                    "ActOnTargets"
+                    {
+                        "Target"
+                        {
+                            "Center"  				"CASTER"
+                            "Radius" 				"%multicast_radius"
+                            "Teams" 				"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+                            "Types" 				"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
+                            "MaxTargets" 			"1"
+                            "Random" 				"1"
+                        }
+
+                        "Action"
+                        {
+                            "ApplyModifier"
+                            {
+                                "Target" 		"TARGET"
+                                "ModifierName"	"modifier_bloodlust_datadriven"
+                            }
+                        }
+                    }
+                }
+            }
+        
+            "modifier_bloodlust_datadriven"
+            {
+                "Duration"	"%duration"
+                
+                "EffectName"		"particles/units/heroes/hero_ogre_magi/ogre_magi_bloodlust_buff.vpcf"
+                "EffectAttachType"	"follow_origin"
+                
+                "OnCreated"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"	"heroes/hero_ogre_magi/bloodlust.lua"
+                        "Function"		"ChangeModel"
+                    }
+                    
+                    "FireSound"
+                    {
+                        "EffectName"	"Hero_OgreMagi.Bloodlust.Target"
+                        "Target"		"TARGET"
+                    }
+                }
+                
+                "OnDestroy"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"	"heroes/hero_ogre_magi/bloodlust.lua"
+                        "Function"		"RevertModel"
+                    }
+                }
+                
+                "Properties"
+                {
+                    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%bonus_attack_speed"
+                    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%bonus_movement_speed"
+                }
+            }
+        }
+    }
+
+    // Rewrite of the Ogre Magi Fireblast ability
+    // Author: YOLOSPAGHETTI
+    // Date: February 14, 2016
+    "ogre_magi_fireblast_datadriven"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"				"ability_datadriven"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+        "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+        "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+        "FightRecapLevel"				"1"
+        "AbilityTextureName"			"ogre_magi_fireblast"
+
+        // Precache
+        //-------------------------------------------------------------------------------------------------------------
+        "precache"
+        {
+            "particle"		"particles/generic_gameplay/generic_stunned.vpcf"
+            "particle"		"particles/units/heroes/hero_ogre_magi/ogre_magi_fireblast.vpcf"
+            "particle"		"particles/units/heroes/hero_ogre_magi/ogre_magi_fireblast_cast.vpcf"
+            "soundfile"		"sounds/weapons/hero/ogre_magi/fireblast_cast.vsnd"
+            "soundfile"		"sounds/weapons/hero/ogre_magi/fireblast_target.vsnd"
+        }
+        
+        // Casting
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"				"475"
+        "AbilityCastPoint"				"0.45"
+        
+        // Time		
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"				"12"
+
+        // Cost
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"				"75 85 95 105"
+        
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityDamage"					"80 145 210 275"
+        
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"			"FIELD_FLOAT"
+                "stun_duration"		"1.5"
+            }
+
+            "02"
+            {
+                "var_type"			"FIELD_FLOAT"
+                "multicast_delay"	"0.4"
+            }
+            "03"
+            {
+                "var_type"			"FIELD_FLOAT"
+                "multicast_delay3"	"0.8"
+            }
+            "04"
+            {
+                "var_type"			"FIELD_FLOAT"
+                "multicast_delay4"	"1.2"
+            }
+        }
+        
+        "OnSpellStart"
+        {
+            "ApplyModifier"
+            {
+                "ModifierName"	"modifier_fireblast_datadriven"
+                "Target"	"TARGET"
+            }
+            
+            "FireEffect"
+            {
+                "EffectName"		"particles/units/heroes/hero_ogre_magi/ogre_magi_fireblast.vpcf"
+                "EffectAttachType"	"follow_overhead"
+                "Target"			"TARGET"
+            }
+            
+            "FireSound"
+            {
+                "EffectName"	"Hero_OgreMagi.Fireblast.Cast"
+                "Target"		"CASTER"
+            }
+            
+            "Damage"
+            {
+                "Target"  "TARGET"
+                "Type"    "DAMAGE_TYPE_MAGICAL"
+                "Damage"  "%AbilityDamage"
+            }
+        }
+        
+        "Modifiers"
+        {		
+            "modifier_fireblast_datadriven"
+            {
+                "IsDebuff"	"1"
+                "Duration"	"%stun_duration"
+                
+                "EffectName"		"particles/generic_gameplay/generic_stunned.vpcf"
+                "EffectAttachType"	"follow_overhead"
+                
+                "OnCreated"
+                {
+                    "FireEffect"
+                    {
+                        "EffectName"		"particles/units/heroes/hero_ogre_magi/ogre_magi_fireblast_cast.vpcf"
+                        "EffectAttachType"	"follow_overhead"
+                        "Target"			"TARGET"
+                    }
+                
+                    "FireSound"
+                    {
+                        "EffectName"	"Hero_OgreMagi.Fireblast.Target"
+                        "Target"		"TARGET"
+                    }
+                }
+                
+                "States"
+                {
+                    "MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
+                }
+            }
+            
+            "modifier_fireblast_multicast2"
+            {
+                "IsDebuff"	"1"
+                
+                "EffectName"		"particles/generic_gameplay/generic_stunned.vpcf"
+                "EffectAttachType"	"follow_overhead"
+                
+                "OnCreated"
+                {
+                    "DelayedAction"
+                    {
+                        "Delay" "%multicast_delay"
+                        "Action"
+                        {
+                            "Damage"
+                            {
+                                "Target"  "TARGET"
+                                "Type"    "DAMAGE_TYPE_MAGICAL"
+                                "Damage"  "%AbilityDamage"
+                            }
+                    
+                            "FireEffect"
+                            {
+                                "EffectName"		"particles/units/heroes/hero_ogre_magi/ogre_magi_fireblast_cast.vpcf"
+                                "EffectAttachType"	"follow_overhead"
+                                "Target"			"TARGET"
+                            }
+                            
+                            "FireSound"
+                            {
+                                "EffectName"	"Hero_OgreMagi.Fireblast.Target"
+                                "Target"		"TARGET"
+                            }
+                        }
+                    }
+                }
+                
+                "States"
+                {
+                    "MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
+                }
+            }
+            
+            "modifier_fireblast_multicast3"
+            {
+                "IsDebuff"	"1"
+                
+                "EffectName"		"particles/generic_gameplay/generic_stunned.vpcf"
+                "EffectAttachType"	"follow_overhead"
+                
+                "OnCreated"
+                {
+                    "DelayedAction"
+                    {
+                        "Delay" "%multicast_delay3"
+                        "Action"
+                        {
+                            "Damage"
+                            {
+                                "Target"  "TARGET"
+                                "Type"    "DAMAGE_TYPE_MAGICAL"
+                                "Damage"  "%AbilityDamage"
+                            }
+                    
+                            "FireEffect"
+                            {
+                                "EffectName"		"particles/units/heroes/hero_ogre_magi/ogre_magi_fireblast_cast.vpcf"
+                                "EffectAttachType"	"follow_overhead"
+                                "Target"			"TARGET"
+                            }
+                            
+                            "FireSound"
+                            {
+                                "EffectName"	"Hero_OgreMagi.Fireblast.Target"
+                                "Target"		"TARGET"
+                            }
+                        }
+                    }
+                }
+                
+                "States"
+                {
+                    "MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
+                }
+            }
+            
+            "modifier_fireblast_multicast4"
+            {
+                "IsDebuff"	"1"
+                
+                "EffectName"		"particles/generic_gameplay/generic_stunned.vpcf"
+                "EffectAttachType"	"follow_overhead"
+                
+                "OnCreated"
+                {
+                    "DelayedAction"
+                    {
+                        "Delay" "%multicast_delay4"
+                        "Action"
+                        {
+                            "Damage"
+                            {
+                                "Target"  "TARGET"
+                                "Type"    "DAMAGE_TYPE_MAGICAL"
+                                "Damage"  "%AbilityDamage"
+                            }
+                    
+                            "FireEffect"
+                            {
+                                "EffectName"		"particles/units/heroes/hero_ogre_magi/ogre_magi_fireblast_cast.vpcf"
+                                "EffectAttachType"	"follow_overhead"
+                                "Target"			"TARGET"
+                            }
+                            
+                            "FireSound"
+                            {
+                                "EffectName"	"Hero_OgreMagi.Fireblast.Target"
+                                "Target"		"TARGET"
+                            }
+                        }
+                    }
+                }
+                
+                "States"
+                {
+                    "MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
+                }
+            }
+        }
+    }
+
+
+    "ogre_magi_ignite_datadriven"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"				"ability_datadriven"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+        "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+        "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+        "FightRecapLevel"				"1"
+        "AbilityTextureName"			"ogre_magi_ignite"
+
+        // Precache
+        //-------------------------------------------------------------------------------------------------------------
+        "precache"
+        {
+            "particle"		"particles/units/heroes/hero_ogre_magi/ogre_magi_ignite.vpcf"
+            "particle"		"particles/units/heroes/hero_ogre_magi/ogre_magi_ignite_debuff.vpcf"
+            "soundfile"		"sounds/weapons/hero/ogre_magi/ignite_cast.vsnd"
+            "soundfile"		"sounds/weapons/hero/ogre_magi/ignite_target.vsnd"
+        }
+        
+        // Casting
+        //-------------------------------------------------------------------------------------------------------------
+        //Dynamic Cast Range
+        "AbilityCastRange"				"1150"
+        "AbilityCastPoint"				"0"
+        
+        // Time		
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"				"15"
+
+        // Cost
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"				"95 105 115 125"
+                
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"			"FIELD_FLOAT"
+                "duration"			"4 5 6 7"
+            }
+
+            "02"
+            {
+                "var_type"			"FIELD_INTEGER"
+                "burn_damage"		"26 32 38 44"
+            }		
+
+            "03"
+            {
+                "var_type"			"FIELD_INTEGER"
+                "slow_movement_speed_pct"		"-20 -22 -24 -26"
+            }
+
+            "04"
+            {
+                "var_type"				"FIELD_INTEGER"
+                "projectile_speed"		"1000"
+            }	
+            "05"
+            {
+                "var_type"			"FIELD_FLOAT"
+                "multicast_delay"	"0.4"
+            }
+            "06"
+            {
+                "var_type"			"FIELD_INTEGER"
+                "normal_range"		"700"
+            }
+            "07"
+            {
+                "var_type"				"FIELD_INTEGER"
+                "multicast_range"		"1400"
+            }
+            //Based on Multicast Level
+            "08"
+            {
+                "var_type"				"FIELD_INTEGER"
+                "multicast_cast_range_bonus"		"150 300 450"
+            }
+            //Based on Multicast Level
+            "09"
+            {
+                "var_type"			"FIELD_FLOAT"
+                "ignite_aoe"		"150 300 450"
+            }
+            "10"
+            {
+                "var_type"			"FIELD_FLOAT"
+                "tick_rate"			"1.0"
+            }
+        }
+        
+        "OnSpellStart"
+        {		
+            "RunScript"
+            {
+                "ScriptFile"	"heroes/hero_ogre_magi/ignite.lua"
+                "Function"		"CheckDistance"
+            }
+        }
+        
+        "OnProjectileHitUnit"
+        {
+            "FireSound"
+            {
+                "Target"		"TARGET"
+                "EffectName"	"Hero_OgreMagi.Ignite.Target"
+            }
+            
+            "RunScript"
+            {
+                "ScriptFile"	"heroes/hero_ogre_magi/ignite.lua"
+                "Function"		"AOEEffect"
+            }
+        }
+        
+        "Modifiers"
+        {
+            "modifier_check_distance"
+            {
+                "IsHidden"	"1"
+            
+                "OnUnitMoved"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"	"heroes/hero_ogre_magi/ignite.lua"
+                        "Function"		"CheckDistance"
+                    }
+                }
+                
+                "OnOrder"
+                {
+                    "RemoveModifier"
+                    {
+                        "ModifierName"	"modifier_check_distance"
+                        "Target"		"CASTER"
+                    }
+                }
+            }
+        
+            "modifier_ignite_multicast"
+            {
+                "IsHidden"	"1"
+                
+                "Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+                
+                "OnCreated"
+                {
+                    "DelayedAction"
+                    {
+                        "Delay" "0.45"
+                        "Action"
+                        {
+                            "TrackingProjectile"
+                            {
+                                "Target"           	"TARGET"
+                                "EffectName"       	"particles/units/heroes/hero_ogre_magi/ogre_magi_ignite.vpcf"
+                                "Dodgeable"        	"1"
+                                "ProvidesVision"   	"0"
+                                "MoveSpeed"        	"%projectile_speed"
+                                "SourceAttachment"  "DOTA_PROJECTILE_ATTACHMENT_ATTACK_1"
+                                "TargetTypes"    "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+                            }
+            
+                            "FireSound"
+                            {
+                                "Target"		"CASTER"
+                                "EffectName"	"Hero_OgreMagi.Ignite.Cast"
+                            }
+                        }	
+                    }
+                }
+            }	
+        
+            "modifier_ignite_multicast_action"
+            {
+                "IsHidden"	"1"
+                
+                "Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+                
+                "OnDestroy"
+                {
+                    "ActOnTargets"
+                    {
+                        "Target"
+                        {
+                            "Center"  				"CASTER"
+                            "Radius" 				"%multicast_range"
+                            "Teams" 				"DOTA_UNIT_TARGET_TEAM_ENEMY"
+                            "Types" 				"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+                            "MaxTargets" 			"1"
+                            "Random" 				"1"
+                        }
+        
+                        "Action"
+                        {
+                            "RunScript"
+                            {
+                                "ScriptFile"	"heroes/hero_ogre_magi/ignite.lua"
+                                "Function"		"CheckTargets"
+                            }
+                        }
+                    }
+                }
+            }
+            
+            "modifier_ignite_datadriven"
+            {
+                "IsDebuff"	"1"
+                "Duration"	"%duration"
+                
+                "EffectName"		"particles/units/heroes/hero_ogre_magi/ogre_magi_ignite_debuff.vpcf"
+                "EffectAttachType"	"follow_origin"
+                
+                "Properties"
+                {
+                    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%slow_movement_speed_pct"
+                }
+                
+                "ThinkInterval"	"%tick_rate"
+                "OnIntervalThink"
+                {
+                    "Damage"
+                    {
+                        "Target"  "TARGET"
+                        "Type"    "DAMAGE_TYPE_MAGICAL"
+                        "Damage"  "%burn_damage"
+                    }
+                }
+            }
+        }
+    }
+
+
 
 }
