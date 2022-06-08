@@ -19,4 +19,5 @@
 	"npc_dota_hero_necrolyte"	"1"
 	"npc_dota_hero_rubick"	"1"
 	"npc_dota_hero_skywrath_mage"	"1"
+	"npc_dota_hero_nevermore"	"1"
 }

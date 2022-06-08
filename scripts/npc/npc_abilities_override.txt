@@ -3745,7 +3745,7 @@
 	}
 	
 	//=================================================================================================================
-	// Ability: Nevermore Shadowraze #1
+	// Ability: Nevermore Shadowraze #1(DOTA1)
 	//=================================================================================================================
 	"nevermore_shadowraze1"
 	{
@@ -3773,7 +3773,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"75 80 85 90"
+		"AbilityManaCost"				"75"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -3781,7 +3781,7 @@
 		{
 				"shadowraze_damage"	
 				{
-					"value"				"90 160 230 300"	
+					"value"				"75 150 225 300"	
 					"LinkedSpecialBonus"	"special_bonus_unique_nevermore_2"	
 				}
 				"shadowraze_radius"	"250"		
@@ -3789,13 +3789,13 @@
 				"shadowraze_cooldown"	"3"
 				"stack_bonus_damage" 
 				{
-					"value"				"50 60 70 80"
+					"value"				"0"
 					"CalculateSpellDamageTooltip"	"0"
 					"special_bonus_unique_nevermore_7"	"+25"
 				}
 				"duration"	
 				{
-					"value"				"8"
+					"value"				"0"
 				}
 		}
 	}
@@ -3829,7 +3829,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"75 80 85 90"
+		"AbilityManaCost"				"75"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -3837,7 +3837,7 @@
 		{
 				"shadowraze_damage"	
 				{
-					"value"				"90 160 230 300"	
+					"value"				"75 150 225 300"	
 					"LinkedSpecialBonus"	"special_bonus_unique_nevermore_2"	
 				}
 				"shadowraze_radius"	"250"		
@@ -3845,13 +3845,13 @@
 				"shadowraze_cooldown"	"3"
 				"stack_bonus_damage" 
 				{
-					"value"				"50 60 70 80"
+					"value"				"0"
 					"CalculateSpellDamageTooltip"	"0"
 					"special_bonus_unique_nevermore_7"	"+25"
 				}
 				"duration"	
 				{
-					"value"				"8"
+					"value"				"0"
 				}
 		
 		}
@@ -3885,7 +3885,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"75 80 85 90"
+		"AbilityManaCost"				"75"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -3893,7 +3893,7 @@
 		{
 			"shadowraze_damage"	
 			{
-				"value"				"90 160 230 300"	
+				"value"				"75 150 225 300"	
 				"LinkedSpecialBonus"	"special_bonus_unique_nevermore_2"	
 			}
 			"shadowraze_radius"	"250"		
@@ -3901,19 +3901,19 @@
 			"shadowraze_cooldown"	"3"
 			"stack_bonus_damage" 
 			{
-				"value"				"50 60 70 80"
+				"value"				"0"
 				"CalculateSpellDamageTooltip"	"0"
 				"special_bonus_unique_nevermore_7"	"+25"
 			}
 			"duration"	
 			{
-				"value"				"8"
+				"value"				"0"
 			}
 		}
 	}
 	
 	//=================================================================================================================
-	// Ability: Nevermore Necromastery
+	// Ability: Nevermore Necromastery(DOTA1)
 	//=================================================================================================================
 	"nevermore_necromastery"
 	{
@@ -3928,8 +3928,8 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-        "HasShardUpgrade"           "1"
-        "HasScepterUpgrade"           "1"
+        "HasShardUpgrade"           "0"
+        "HasScepterUpgrade"           "0"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -3955,7 +3955,7 @@
 			"01"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"necromastery_damage_per_soul"	"1 2 3 4"
+				"necromastery_damage_per_soul"	"2"
 				"CalculateSpellDamageTooltip"	"0"
 				"LinkedSpecialBonus"			"special_bonus_unique_nevermore_1"
 				"DamageTypeTooltip"				"DAMAGE_TYPE_NONE"
@@ -3963,7 +3963,7 @@
 			"02"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"necromastery_max_souls"	"11 14 17 20"
+				"necromastery_max_souls"	"12 20 28 36"
 			}
 			"03"
 			{
@@ -3973,7 +3973,7 @@
 			"04"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"necromastery_max_souls_scepter" "25"
+				"necromastery_max_souls_scepter" "36"
 				"RequiresScepter"			"1"
 			}	
 			"05"
@@ -4004,7 +4004,7 @@
 	}
 	
 	//=================================================================================================================
-	// Ability: Presence of the Dark Lord
+	// Ability: Presence of the Dark Lord(DOTA1)
 	//=================================================================================================================
 	"nevermore_dark_lord"
 	{
@@ -4028,7 +4028,7 @@
 			"01"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"presence_armor_reduction"		"-4 -5 -6 -7"
+				"presence_armor_reduction"		"-3 -4 -5 -6"
 				"LinkedSpecialBonus"			"special_bonus_unique_nevermore_5"
 			}
 			"02"
@@ -4040,7 +4040,7 @@
 	}
 	
 	//=================================================================================================================
-	// Ability: Nevermore Requiem of Souls
+	// Ability: Nevermore Requiem of Souls(DOTA1)
 	//=================================================================================================================
 	"nevermore_requiem"
 	{
@@ -4071,7 +4071,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"150 175 200"
+		"AbilityManaCost"				"100 175 200"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -4086,12 +4086,12 @@
 				"requiem_reduction_mres"	"-5 -10 -15"
 				"requiem_slow_duration"	
 				{
-					"value"		"0.8"
+					"value"		"0"
 					"LinkedSpecialBonus"		"special_bonus_unique_nevermore_6"
 				}
 				"requiem_slow_duration_max"	
 				{
-					"value"					"2.4"
+					"value"					"0"
 					"LinkedSpecialBonus"		"special_bonus_unique_nevermore_6"
 					"LinkedSpecialBonusField"		"value2"
 				}
