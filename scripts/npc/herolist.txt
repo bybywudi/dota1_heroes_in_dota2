@@ -22,4 +22,5 @@
 	"npc_dota_hero_nevermore"	"1"
 	"npc_dota_hero_tiny"	"1"
 	"npc_dota_hero_life_stealer"	"1"
+	"npc_dota_hero_skeleton_king"	"1"
 }
