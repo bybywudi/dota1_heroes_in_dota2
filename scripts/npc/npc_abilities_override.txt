@@ -6999,7 +6999,7 @@
 	}
 	
 	//=================================================================================================================
-	// Tiny: Avalanche
+	// Tiny: Avalanche(DOTA1)
 	//=================================================================================================================
 	"tiny_avalanche"
 	{
@@ -7020,7 +7020,7 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"26 22 18 14"
+		"AbilityCooldown"				"17"
 
 
 		// Cost
@@ -7033,13 +7033,13 @@
 		{
 				"radius"					"325 350 375 400"
 				"tick_interval"				"0.3"
-				"total_duration"			"1.4"
+				"total_duration"			"2"
 				"tick_count"			"5"
-				"stun_duration"				"0.3"
+				"stun_duration"				"1.3"
 				"projectile_speed"		"1200"
 				"avalanche_damage"			
 				{
-					"value"				"75 150 225 300"
+					"value"				"100 180 260 300"
 					"LinkedSpecialBonus"		"special_bonus_unique_tiny"
 				}
 				"toss_multiplier"		"2"
@@ -7048,7 +7048,7 @@
 	}
 	
 	//=================================================================================================================
-	// Tiny: Toss
+	// Tiny: Toss(DOTA1)
 	//=================================================================================================================
 	"tiny_toss"
 	{
@@ -7064,16 +7064,16 @@
 		
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"900 1000 1100 1200"
+		"AbilityCastRange"				"1300"
 		"AbilityCastPoint"				"0.0 0.0 0.0 0.0"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"17 15 13 11"
+		"AbilityCooldown"				"10"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"90 100 110 120"
+		"AbilityManaCost"				"120"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -7099,21 +7099,21 @@
 	
 
 	//=================================================================================================================
-	// Tiny: Craggy Exterior
+	// Tiny: Craggy Exterior(DOTA1)
 	//=================================================================================================================
 	"tiny_craggy_exterior"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"					"296"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
 		"AbilitySound"					"Hero_Tiny.CraggyExterior.Stun"
 
-		"MaxLevel"						"1"
+		"MaxLevel"						"4"
 		"FightRecapLevel"				"1"
-		"IsGrantedByShard"				"1"
-        "HasShardUpgrade"               "1"
+		"IsGrantedByShard"				"0"
+        "HasShardUpgrade"               "0"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -7126,22 +7126,22 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"stun_chance"				"20"
+				"stun_chance"				"6 12 18 24"
 			}
 			"02"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"stun_duration"				"1.0"
+				"stun_duration"				"1.2"
 			}
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"100"
+				"damage"					"25 35 45 55"
 			}
 			"04"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"radius"					"400"
+				"radius"					"300"
 			}
 		}
 	}
@@ -7351,7 +7351,7 @@
 
 	
 	//=================================================================================================================
-	// Tiny: Grow
+	// Tiny: Grow(DOTA1)
 	//=================================================================================================================
 	"tiny_grow"
 	{
@@ -7367,10 +7367,10 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"bonus_armor"				"10 15 20"
+				"bonus_armor"				"5 10 15"
 				"bonus_damage"			
 				{
-					"value"					"30 70 110"
+					"value"					"50 100 150"
 					"CalculateSpellDamageTooltip"	"0"
 				}
 				"tree_bonus_damage_pct"			
@@ -7378,7 +7378,7 @@
 					"value"				"20 30 40"
 					"special_bonus_unique_tiny_7"	"+40"
 				}
-				"attack_speed_reduction"	"20 30 40"
+				"attack_speed_reduction"	"20 35 50"
 				"toss_bonus_damage"			"100 200 300"
 		}
 	}
