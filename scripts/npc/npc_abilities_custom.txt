@@ -2446,5 +2446,193 @@
     }
 
 
+    "necrolyte_heartstopper_aura_datadriven"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"				"ability_datadriven"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
+        "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+        "AbilityTextureName"			"necrolyte_heartstopper_aura"
+        
+        
+        // Casting
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"				"900"
+
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"			"FIELD_INTEGER"
+                "aura_radius"		"1000"		// If you change this, also change the AbilityCastRange above
+            }
+            "02"
+            {
+                "var_type"			"FIELD_FLOAT"
+                "aura_damage"		"-0.6 -0.9 -1.2 -1.5" 
+            }
+            "03"
+            {
+                "var_type"			"FIELD_FLOAT"
+                "aura_damage_interval"		"0.2" 
+            }
+        }
+
+        "Modifiers"
+        {
+            "modifier_heartstopper_aura_datadriven"
+            {
+                "Passive"		"1"
+                "IsHidden"		"1"
+
+                "Aura" 			"modifier_heartstopper_debuff_datadriven"
+                "Aura_Radius" 	"%aura_radius"
+                "Aura_Teams" 	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+                "Aura_Types" 	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+                "Aura_Flags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+            }
+
+            "modifier_heartstopper_debuff_datadriven"
+            {
+                "IsDebuff"	"1"
+                "IsHidden"	"1"
+
+                "ThinkInterval"	"%aura_damage_interval"
+
+                "OnIntervalThink"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"			"heroes/hero_necrolyte/heartstopper_aura.lua"
+                        "Function"				"HeartstopperAura"
+
+                        "visibility_modifier"	"modifier_heartstopper_debuff_visibility"
+                    }
+                }
+
+                "OnDestroy"
+                {
+                    "RemoveModifier"
+                    {
+                        "ModifierName"	"modifier_heartstopper_debuff_visibility"
+                        "Target" 		"TARGET"
+                    }
+                }
+            }
+
+            "modifier_heartstopper_debuff_visibility"
+            {
+                "IsDebuff"		"1"
+                "IsHidden"		"0"
+                "IsPurgable" 	"0"
+                "Passive"		"0"
+            }
+        }
+    }
+
+    "necrolyte_sadist_datadriven"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"				"ability_datadriven"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityTextureName"			"necrolyte/apostle_of_decay_icons/necrolyte_heartstopper_aura"
+        
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"			"FIELD_INTEGER"
+                "mana_regen"		"2 4 6 10"
+            }
+            "02"
+            {
+                "var_type"			"FIELD_INTEGER"
+                "hero_multiplier"	"10"			// Only used for the stack count
+            }
+            "03"
+            {
+                "var_type"			"FIELD_INTEGER"
+                "health_regen"		"1 2 3 6"
+            }
+            "04"
+            {
+                "var_type"			"FIELD_FLOAT"
+                "regen_duration"			"6.0"
+            }
+        }
+
+        "Modifiers"
+        {
+            "modifier_sadist_datadriven"
+            {
+                "Passive"	"1"
+                "IsHidden"	"1"
+
+                "OnKill"
+                {
+                    "ApplyModifier"
+                    {
+                        "ModifierName"	"modifier_sadist_regen_datadriven"
+                        "Target"		"CASTER"
+                    }
+                }
+
+                "OnHeroKilled"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"	"scripts/vscripts/heroes/hero_necrolyte/sadist.lua"
+                        "Function"		"ApplySadistHero"
+                        "modifier"	"modifier_sadist_regen_datadriven"
+                    }
+                }
+            }
+
+            // Stack modifier
+            "modifier_sadist_buff_datadriven"
+            {
+                "IsBuff"	"1"
+                "Duration"	"%regen_duration"
+
+                "Properties"
+                {
+                    "MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"		"%mana_regen"
+                    "MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"%health_regen"
+                }
+            }
+
+            "modifier_sadist_regen_datadriven"
+            {
+                "Duration"	"%regen_duration"
+                "IsHidden"	"1"
+
+                "Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+
+                "OnCreated"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"	"heroes/hero_necrolyte/sadist.lua"
+                        "Function"		"ApplySadist"
+                        "stack_modifier"	"modifier_sadist_buff_datadriven"
+                    }
+                }
+
+                "OnDestroy"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"	"heroes/hero_necrolyte/sadist.lua"
+                        "Function"		"RemoveSadist"
+                        "stack_modifier"	"modifier_sadist_buff_datadriven"
+                    }
+                }			
+            }
+        }
+    }
+
 
 }

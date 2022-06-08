@@ -213,4 +213,23 @@
 		"Ability17"		""
 	}
 
+	"npc_dota_hero_necrolyte"
+	{
+		"override_hero"                                "npc_dota_hero_necrolyte"
+		"Ability1"		"necrolyte_death_pulse"
+		"Ability2"		"necrolyte_sadist_datadriven"
+		"Ability3"		"necrolyte_heartstopper_aura_datadriven"
+		"Ability4"		"generic_hidden"
+		"Ability5"		"generic_hidden"
+		"Ability6"		"necrolyte_reapers_scythe"
+		"Ability10"		""
+		"Ability11"		""
+		"Ability12"		""
+		"Ability13"		""
+		"Ability14"		""
+		"Ability15"		""
+		"Ability16"		""
+		"Ability17"		""
+	}
+
 }
