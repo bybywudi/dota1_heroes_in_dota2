@@ -16685,14 +16685,14 @@
 	
 	
 	//=================================================================================================================
-	// Lifestealer: Open Wounds
+	// Lifestealer: Open Wounds(DOTA1)
 	//=================================================================================================================
 	"life_stealer_open_wounds"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"5251"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
@@ -16700,22 +16700,22 @@
 		"FightRecapLevel"				"1"
 		"AbilitySound"					"Hero_LifeStealer.OpenWounds.Cast"
 
-		"MaxLevel"						"1"
-		"IsGrantedByShard"			"1"
+		"MaxLevel"						"4"
+		"IsGrantedByShard"			"0"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"0.2"
-		"AbilityCastRange"				"800"
+		"AbilityCastRange"				"600"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
 		
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"15"
+		"AbilityCooldown"				"24 20 16 12"
 		
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"75"
+		"AbilityManaCost"				"70 80 90 100"
 			
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -16723,10 +16723,10 @@
 		{
 				"duration"				"7"
 				"slow_steps"			"-50 -50 -40 -30 -20 -10 -10 -10"
-				"heal_percent"			"50"
-				"max_health_as_damage_pct"	"2"
-				"damage_threshold"		"500"
-				"spread_radius"			"700"
+				"heal_percent"			"15 20 25 30"
+				"max_health_as_damage_pct"	"0"
+				"damage_threshold"		"9999"
+				"spread_radius"			"1"
 				"slow_tooltip"			"50"
 				
 		}

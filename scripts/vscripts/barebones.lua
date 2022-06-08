@@ -40,7 +40,7 @@ END_GAME_ON_KILLS = true                -- Should the game end after a certain n
 KILLS_TO_END_GAME_FOR_TEAM = 50         -- How many kills for a team should signify an end of game?
 
 USE_CUSTOM_HERO_LEVELS = true           -- Should we allow heroes to have custom levels?
-MAX_LEVEL = 50                          -- What level should we let heroes get to?
+MAX_LEVEL = 25                          -- What level should we let heroes get to?
 USE_CUSTOM_XP_VALUES = true             -- Should we use custom XP values to level up heroes, or the default Dota numbers?
 
 -- Fill this table up with the required XP per level if you want to change it
@@ -118,7 +118,7 @@ function GameMode:OnHeroInGame(hero)
   MultiTeam:SetPlayerTeam(playerID, team)]]
 
   -- This line for example will set the starting gold of every hero to 500 unreliable gold
-  hero:SetGold(500, false)
+  hero:SetGold(650, false)
 
   -- These lines will create an item and add it to the player, effectively ensuring they start with the item
   --local item = CreateItem("item_multiteam_action", hero, hero)
@@ -131,9 +131,9 @@ function GameMode:OnHeroInGame(hero)
   hero:RemoveAbility(abil:GetAbilityName())
   hero:AddAbility("example_ability")]]
 
-  for i=1,24 do
-    hero:HeroLevelUp(false)
-  end
+  -- for i=1,24 do
+  --   hero:HeroLevelUp(false)
+  -- end
 end
 
 --[[
