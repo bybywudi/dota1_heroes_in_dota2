@@ -232,4 +232,28 @@
 		"Ability17"		""
 	}
 
+	"npc_dota_hero_rubick"
+	{
+		"override_hero"                                "npc_dota_hero_rubick"
+		"Ability1"		"rubick_telekinesis"
+		"Ability2"		"rubick_fade_bolt"
+		"Ability3"		"rubick_arcane_supremacy"
+		"Ability4"		"rubick_empty1"
+		"Ability5"		"rubick_empty2"
+		"Ability6"		"rubick_spell_steal"
+		"Ability7"		"rubick_telekinesis_land"
+		"Ability8"		"rubick_hidden1"
+		"Ability9"		"rubick_hidden2"
+		"Ability10"		"rubick_hidden3"
+		"Ability11"		"rubick_telekinesis_land_self"
+		"Ability12"		""
+		"Ability13"		""
+		"Ability14"		""
+		"Ability15"		""
+		"Ability16"		""
+		"Ability17"		""
+		"Ability18"		""
+		"Ability19"		""
+	}
+
 }
