@@ -31595,14 +31595,14 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_move_speed"		"15 25 35 45"
+				"bonus_move_speed"		"10 20 30 40"
 				"LinkedSpecialBonus"		"special_bonus_unique_troll_warlord_2"
 
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_armor"			"4 5 6 7"
+				"bonus_armor"			"0"
 				"LinkedSpecialBonus"		"special_bonus_unique_troll_warlord"
 
 			}
@@ -31614,18 +31614,23 @@
 			"05"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"base_attack_time"		"1.4"
+				"base_attack_time"		"1.55"
 			}	
 			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"ensnare_chance"			"14 16 18 20"
+				"ensnare_chance"			"0"
 			}
 			"08"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"ensnare_duration"			"0.8 1.2 1.6 2.0"
+				"ensnare_duration"			"0"
 			}
+			"09"
+            {
+                "var_type"				"FIELD_INTEGER"
+                "bonus_damage"			"15"
+            }
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
@@ -31659,11 +31664,11 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"9"
+		"AbilityCooldown"				"20"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"60"
+		"AbilityManaCost"				"50"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -31694,12 +31699,12 @@
 			"05"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"axe_slow_duration"			"2.5 3 3.5 4"
+				"axe_slow_duration"			"3.0 3.75 4.5 5.25"
 			}
 			"06"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"movement_speed"			"40"
+				"movement_speed"			"30"
 			}
 			"07"
 			{
@@ -31751,11 +31756,11 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"9"
+		"AbilityCooldown"				"12.0 12.0 12.0 12.0"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"50"
+		"AbilityManaCost"				"50 50 50 50"
 
 
 		// Special
@@ -31765,7 +31770,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"50 100 150 200"
+				"damage"					"125 175 225 275"
 				"LinkedSpecialBonus"		"special_bonus_unique_troll_warlord_3"
 			}
 			"02"
@@ -31786,7 +31791,7 @@
 			"05"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"blind_duration"			"5"
+				"blind_duration"			"4.0 5.0 6.0 7.0"
 			}
 			"06"
 			{

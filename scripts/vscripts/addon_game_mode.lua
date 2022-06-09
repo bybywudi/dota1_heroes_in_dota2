@@ -29,6 +29,8 @@ function CAddonTemplateGameMode:InitGameMode()
    
 	self.vUserIds = {}
 	self.vSteamIds = {}
+	self.troll_warlord_berserkers_rage_level = 0
+	self.troll_warlord_berserkers_rage_index = 0
 	GameRules:SetHeroSelectionTime(Hero_Selection_Time)
 	GameRules:SetHeroSelectPenaltyTime(Hero_Selection_Penalty_Time)
 	GameRules:SetStrategyTime(Strategy_Time)
@@ -39,6 +41,9 @@ function CAddonTemplateGameMode:InitGameMode()
 
 	ListenToGameEvent("game_rules_state_change", Dynamic_Wrap(CAddonTemplateGameMode,"OnGameRulesStateChange"), self)
 	ListenToGameEvent('player_connect_full', Dynamic_Wrap(CAddonTemplateGameMode, 'OnConnectFull'), self)
+	ListenToGameEvent('dota_player_used_ability', Dynamic_Wrap(CAddonTemplateGameMode, 'OnAbilityUsed'), self)
+	ListenToGameEvent('dota_ability_changed', Dynamic_Wrap(CAddonTemplateGameMode, 'OnAbilityChanged'), self)
+	ListenToGameEvent('dota_player_learned_ability', Dynamic_Wrap(CAddonTemplateGameMode, 'OnPlayerLearnedAbility'), self)
 	print( "Template addon is loaded." )
 end
 
@@ -100,4 +105,43 @@ function CAddonTemplateGameMode:OnGameInProgress()
 		end  
 	  return 1.0
 	end)
+end
+
+function CAddonTemplateGameMode:OnAbilityUsed(keys)
+	print('[BAREBONES] AbilityUsed')
+	DeepPrintTable(keys)
+  
+	local player = EntIndexToHScript(keys.PlayerID)
+	local abilityname = keys.abilityname
+	if abilityname == "troll_warlord_berserkers_rage" then
+		print("troll_warlord_berserkers_rage")
+		ply = PlayerResource:GetPlayer(keys.PlayerID)
+	end
+end
+
+function CAddonTemplateGameMode:OnAbilityChanged(keys)
+	print('[BAREBONES] OnAbilityChanged')
+	DeepPrintTable(keys)
+end
+
+function CAddonTemplateGameMode:OnPlayerLearnedAbility(keys)
+	print ('[BAREBONES] OnPlayerLearnedAbility')
+	DeepPrintTable(keys)
+	local player = EntIndexToHScript(keys.player)
+	local abilityname = keys.abilityname
+	print(abilityname)
+
+	if abilityname == "troll_warlord_berserkers_rage" then
+		self.troll_warlord_berserkers_rage_level = self.troll_warlord_berserkers_rage_level + 1
+		print("troll_warlord_berserkers_rage")
+		ply = PlayerResource:GetPlayer(keys.PlayerID)
+		hero = ply:GetAssignedHero()
+		if hero:HasAbility("troll_warlord_berserkers_rage_stun_datadriven") == false then
+			ab = hero:AddAbility("troll_warlord_berserkers_rage_stun_datadriven")
+			self.troll_warlord_berserkers_rage_index = ab:GetAbilityIndex()
+		end
+		ab = hero:GetAbilityByIndex(self.troll_warlord_berserkers_rage_index)
+		ab:SetLevel(self.troll_warlord_berserkers_rage_level)
+	end
+  
 end

@@ -61,6 +61,80 @@
                 }
             }
         }
+    
+    "troll_warlord_berserkers_rage_stun_datadriven"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"				"ability_datadriven"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+        "AbilityDamageType"				"DAMAGE_TYPE_MAGICAL"
+        "AbilityTextureName"			"troll_warlord_berserkers_rage"
+    
+
+        // Precache
+        //-------------------------------------------------------------------------------------------------------------
+        "precache"
+        {
+            "soundfile"			"soundevents/game_sounds_heroes/game_sounds_troll_warlord.vsndevts"
+            "particle"			"particles/units/heroes/hero_troll_warlord/troll_warlord_berserk_buff.vpcf"
+        }
+        
+        // Casting
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastPoint"				"0.2 0.2 0.2 0.2"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"				"FIELD_INTEGER"
+                "bash_chance"			"10"
+            }
+            "02"
+            {
+                "var_type"				"FIELD_FLOAT"
+                "bash_duration"			"0.8 1.2 1.6 2.0"
+            }
+            "03"
+            {
+                "var_type"				"FIELD_INTEGER"
+                "bash_damage"			"20 30 40 50"
+            }
+            "04"
+            {
+                "var_type"				"FIELD_INTEGER"
+                "bonus_damage"			"15"
+            }
+        }
+
+        "Modifiers"
+        {   
+            "modifier_troll_warlord_berserkers_rage_stun_datadriven"
+            {
+                "Passive"    "1"
+                "IsHidden"	 "1" 
+                "OnAttackLanded"
+                {
+                    "Random"
+                    {
+                        "Chance"			"%bash_chance"
+                        "OnSuccess"
+                        {
+                            "RunScript"
+                            {
+                                "ScriptFile"	"heroes/hero_troll_warlord/berserkers_rage_stun.lua"
+                                "Function"		"BerserkersRageBash"
+                                "sound"			"Hero_TrollWarlord.BerserkersRage.Stun"
+                            }
+                        }
+                    }                
+                }
+            }
+        }
+    }
 
     "troll_warlord_berserkers_rage_datadriven"
     {
