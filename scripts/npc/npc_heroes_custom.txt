@@ -141,7 +141,7 @@
 	{
 		"override_hero"                                "npc_dota_hero_phantom_assassin"
 		"Ability1"		"phantom_assassin_stifling_dagger_datadriven"
-		"Ability2"		"phantom_assassin_phantom_strike_datadriven"
+		"Ability2"		"phantom_assassin_phantom_strike"
 		"Ability3"		"phantom_assassin_blur_datadriven"
 		"Ability4"		"generic_hidden"
 		"Ability5"		"generic_hidden"
