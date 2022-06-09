@@ -1,9 +1,9 @@
 require('timers')
 
-Hero_Selection_Time = 10
-Hero_Selection_Penalty_Time = 10
-Strategy_Time = 10
-PRE_GAME_TIME = 5.0
+Hero_Selection_Time = 40
+Hero_Selection_Penalty_Time = 20
+Strategy_Time = 20
+PRE_GAME_TIME = 80
 Gold_Per_Tick = 1
 Gold_Gain_Time = 1.0
 -- Generated from template
