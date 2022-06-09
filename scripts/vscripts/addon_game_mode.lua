@@ -1,40 +1,103 @@
--- Generated from template
-require('util')
 require('timers')
-require('physics')
-require('barebones')
+
+Hero_Selection_Time = 10
+Hero_Selection_Penalty_Time = 10
+Strategy_Time = 10
+PRE_GAME_TIME = 5.0
+Gold_Per_Tick = 1
+Gold_Gain_Time = 1.0
+-- Generated from template
+
+if CAddonTemplateGameMode == nil then
+	CAddonTemplateGameMode = class({})
+end
 
 function Precache( context )
-	--[[
-	This function is used to precache resources/units/items/abilities that will be needed
-	for sure in your game and that cannot or should not be precached asynchronously or
-	after the game loads.
-	See GameMode:PostLoadPrecache() in barebones.lua for more information
-	]]
-	print("[BAREBONES] Performing pre-load precache")
-	-- Particles can be precached individually or by folder
-	-- It it likely that precaching a single particle system will precache all of its children, but this may not be guaranteed
-	PrecacheResource("particle", "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf", context)
-	PrecacheResource("particle_folder", "particles/test_particle", context)
-	-- Models can also be precached by folder or individually
-	-- PrecacheModel should generally used over PrecacheResource for individual models
-	PrecacheResource("model_folder", "particles/heroes/antimage", context)
-	PrecacheResource("model", "particles/heroes/viper/viper.vmdl", context)
-	PrecacheModel("models/heroes/viper/viper.vmdl", context)
-	-- Sounds can precached here like anything else
-	PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_gyrocopter.vsndevts", context)
-	-- Entire items can be precached by name
-	-- Abilities can also be precached in this way despite the name
-	PrecacheItemByNameSync("example_ability", context)
-	PrecacheItemByNameSync("item_example_item", context)
-	-- Entire heroes (sound effects/voice/models/particles) can be precached with PrecacheUnitByNameSync
-	-- Custom units from npc_units_custom.txt can also have all of their abilities and precache{} blocks precached in this way
-	PrecacheUnitByNameSync("npc_dota_hero_ancient_apparition", context)
-	PrecacheUnitByNameSync("npc_dota_hero_enigma", context)
+	
 end
+
 -- Create the game mode when we activate
 function Activate()
-	GameRules.GameMode = GameMode()
-	GameRules.GameMode:InitGameMode()
-	GameRules.GameMode:CaptureGameMode()
+	GameRules.AddonTemplate = CAddonTemplateGameMode()
+	GameRules.AddonTemplate:InitGameMode()
+end
+
+function CAddonTemplateGameMode:InitGameMode()
+	
+	CAddonTemplateGameMode = self
+	mode = GameRules:GetGameModeEntity()        
+   
+	self.vUserIds = {}
+	self.vSteamIds = {}
+	GameRules:SetHeroSelectionTime(Hero_Selection_Time)
+	GameRules:SetHeroSelectPenaltyTime(Hero_Selection_Penalty_Time)
+	GameRules:SetStrategyTime(Strategy_Time)
+	GameRules:SetPreGameTime(PRE_GAME_TIME)
+	mode:SetFreeCourierModeEnabled(true)
+	mode:SetCustomHeroMaxLevel(25)
+	mode:SetUseDefaultDOTARuneSpawnLogic(true)
+
+	ListenToGameEvent("game_rules_state_change", Dynamic_Wrap(CAddonTemplateGameMode,"OnGameRulesStateChange"), self)
+	ListenToGameEvent('player_connect_full', Dynamic_Wrap(CAddonTemplateGameMode, 'OnConnectFull'), self)
+	print( "Template addon is loaded." )
+end
+
+function CAddonTemplateGameMode:OnGameRulesStateChange( keys )
+	print("OnGameRulesStateChange")
+	DeepPrintTable(keys)    --详细打印传递进来的表
+
+	--获取游戏进度
+	local newState = GameRules:State_Get()
+
+	if newState == DOTA_GAMERULES_STATE_HERO_SELECTION then
+			print("Player begin select hero")  --玩家处于选择英雄界面
+
+	elseif newState == DOTA_GAMERULES_STATE_STRATEGY_TIME then
+			print("Player ready game sta")  --玩家处于游戏准备状态
+			for key, value in pairs(self.vUserIds) do      
+				print(value)  
+				if PlayerResource:HasSelectedHero(value) == false then
+					-- PlayerController:MakeRandomHeroSelection()
+					print("no hero")
+					ply = PlayerResource:GetPlayer(value)
+					ply:MakeRandomHeroSelection()
+				end
+			end   
+	elseif newState == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
+			print("Player game begin")  --玩家开始游戏
+			-- CAddonTemplateGameMode:OnGameInProgress()
+	end
+end
+
+function CAddonTemplateGameMode:OnConnectFull(keys)
+  print ('OnConnectFull')
+  DeepPrintTable(keys)
+  
+  local entIndex = keys.index
+  -- The Player entity of the joining user
+  local ply = EntIndexToHScript(entIndex)
+  
+  -- The Player ID of the joining player
+  local playerID = ply:GetPlayerID()
+  print(playerID)
+  
+  -- Update the user ID table with this user
+  self.vUserIds[keys.userid] = playerID
+
+  -- Update the Steam ID table
+  self.vSteamIds[PlayerResource:GetSteamAccountID(playerID)] = ply
+  DeepPrintTable(self.vUserIds)
+  DeepPrintTable(self.vSteamIds)
+end
+
+function CAddonTemplateGameMode:OnGameInProgress()
+	print("[BAREBONES] The game has officially begun")
+  
+	Timers:CreateTimer(1.0, 
+	function()
+		for key, value in pairs(self.vUserIds) do 
+			PlayerResource:ModifyGold(value, 1, true, 1)
+		end  
+	  return 1.0
+	end)
 end
