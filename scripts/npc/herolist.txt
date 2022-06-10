@@ -29,4 +29,5 @@
 	"npc_dota_hero_mirana"	"1"
 	"npc_dota_hero_storm_spirit"	"1"
 	"npc_dota_hero_slark"	"1"
+	"npc_dota_hero_zuus"	"1"
 }
