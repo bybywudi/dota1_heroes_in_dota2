@@ -6500,7 +6500,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"static_remnant_radius"		"235"		
+				"static_remnant_radius"		"260"		
 			}
 			"02"
 			{
@@ -6516,7 +6516,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"static_remnant_damage"			"120 180 240 300"
+				"static_remnant_damage"			"140 180 220 260"
 				"LinkedSpecialBonus"	"special_bonus_unique_storm_spirit_5"
 			}
 		}
@@ -6547,23 +6547,23 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"20 18 16 14"
+		"AbilityCooldown"				"20"
 	
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"60 70 80 90"
+		"AbilityManaCost"				"100 110 120 130"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"electric_vortex_pull_distance"		"180 220 260 300"		
+				"electric_vortex_pull_distance"		"100 150 200 250"		
 				"electric_vortex_pull_tether_range"			"1200.0"		
 				"electric_vortex_self_slow"	"-50"
 				"electric_vortex_self_slow_duration"	"3.0"
 				"AbilityDuration"				
 				{
-					"value"				"1.4 1.8 2.2 2.6"
+					"value"				"1 1.5 2 2.5"
 					"special_bonus_unique_storm_spirit"	"+0.4"
 				}
 				"radius_scepter"	
@@ -6681,7 +6681,7 @@
 		
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"30"
+		"AbilityManaCost"				"0"
 		
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
@@ -6694,12 +6694,12 @@
 			"01"
 			{
 				"var_type"										"FIELD_FLOAT"
-				"ball_lightning_initial_mana_percentage"		"7.5"		
+				"ball_lightning_initial_mana_percentage"		"7"		
 			}
 			"02"
 			{
 				"var_type"										"FIELD_INTEGER"
-				"ball_lightning_initial_mana_base"				"25"		
+				"ball_lightning_initial_mana_base"				"15"		
 			}
 			"03"
 			{
@@ -6709,7 +6709,7 @@
 			"04"
 			{
 				"var_type"							"FIELD_INTEGER"
-				"ball_lightning_aoe"				"200"		
+				"ball_lightning_aoe"				"150 225 300"		
 			}
 			"05"
 			{
@@ -6719,7 +6719,7 @@
 			"06"
 			{
 				"var_type"								"FIELD_FLOAT"
-				"ball_lightning_travel_cost_percent"	"0.65"		
+				"ball_lightning_travel_cost_percent"	"1"		
 			}
 			"07"
 			{
