@@ -50,7 +50,7 @@
 		"Ability3"		"juggernaut_blade_dance"
 		"Ability4"		"generic_hidden"
 		"Ability5"		"generic_hidden"
-		"Ability6"		"juggernaut_omni_slash"
+		"Ability6"		"juggernaut_omni_slash_datadriven"
 		"Ability10"		""
 		"Ability11"		""
 		"Ability12"		""
