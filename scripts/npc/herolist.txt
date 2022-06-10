@@ -22,5 +22,6 @@
 	"npc_dota_hero_tiny"	"1"
 	"npc_dota_hero_life_stealer"	"1"
 	"npc_dota_hero_skeleton_king"	"1"
-	"npc_dota_hero_skeleton_king"	"1"
+	"witch_doctor_death_ward"	"1"
+	"npc_dota_hero_legion_commander"	"1"
 }

@@ -395,4 +395,23 @@
 		"Ability16"		""
 		"Ability17"		""
 	}
+
+	"npc_dota_hero_legion_commander"
+	{
+		"override_hero"                                "npc_dota_hero_legion_commander"
+		"Ability1"		"legion_commander_overwhelming_odds"
+		"Ability2"		"legion_commander_press_the_attack"
+		"Ability3"		"legion_commander_moment_of_courage"
+		"Ability4"		"generic_hidden"
+		"Ability5"		"generic_hidden"
+		"Ability6"		"legion_commander_duel"
+		"Ability10"		""
+		"Ability11"		""
+		"Ability12"		""
+		"Ability13"		""
+		"Ability14"		""
+		"Ability15"		""
+		"Ability16"		""
+		"Ability17"		""
+	}
 }
