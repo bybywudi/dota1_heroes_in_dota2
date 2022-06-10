@@ -453,4 +453,23 @@
 		"Ability16"		""
 		"Ability17"		""
 	}
+
+	"npc_dota_hero_mirana"
+	{
+		"override_hero"                                "npc_dota_hero_mirana"
+		"Ability1"		"mirana_starfall"
+		"Ability2"		"mirana_arrow"
+		"Ability3"		"mirana_leap"
+		"Ability4"		"generic_hidden"
+		"Ability5"		"generic_hidden"
+		"Ability6"		"mirana_invis"
+		"Ability10"		""
+		"Ability11"		""
+		"Ability12"		""
+		"Ability13"		""
+		"Ability14"		""
+		"Ability15"		""
+		"Ability16"		""
+		"Ability17"		""
+	}
 }
