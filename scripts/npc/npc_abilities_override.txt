@@ -9469,7 +9469,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Witch Doctor: Paralyzing Cask
+	// Witch Doctor: Paralyzing Cask(DOTA1)
 	//=================================================================================================================
 	"witch_doctor_paralyzing_cask"
 	{
@@ -9500,7 +9500,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"80 100 120 140"
+		"AbilityManaCost"				"110 120 130 140"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -9511,8 +9511,8 @@
 		"AbilityValues"
 		{
 				"hero_duration"			"1.0 1.0 1.0 1.0"
-				"creep_duration"		"1"
-				"base_damage"			"40"
+				"creep_duration"		"5"
+				"base_damage"			"50"
 				"bounce_range"			"575 575 575 575"
 				"bounces"				
 				{ 
@@ -9521,14 +9521,14 @@
 				}
 				"speed"					"1000"
 				"bounce_delay"			"0.3"
-				"bounce_bonus_damage"			"10 15 20 25"
-				"creep_damage_pct"		"200"
+				"bounce_bonus_damage"			"0 0 0 0"
+				"creep_damage_pct"		"75 100 125 150"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
 	
 	//=================================================================================================================
-	// Witch Doctor: Voodoo Restoration
+	// Witch Doctor: Voodoo Restoration(DOTA1)
 	//=================================================================================================================
 	"witch_doctor_voodoo_restoration"
 	{
@@ -9546,7 +9546,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"35 40 45 50"		
+		"AbilityManaCost"				"25 50 75 100"		
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -9555,7 +9555,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"mana_per_second"			"8 12 16 20"
+				"mana_per_second"			"8 14 20 26"
 				"LinkedSpecialBonus"	"special_bonus_unique_witch_doctor_4"
 				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_MULTIPLY"
 				"LinkedSpecialBonusField"	"value"
@@ -9564,12 +9564,12 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"radius"					"500"
+				"radius"					"340"
 			}
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"heal"						"16 24 32 40"
+				"heal"						"6 12 24 30"
 			}
 			"04"
 			{
@@ -9581,7 +9581,7 @@
 	}
 	
 	//=================================================================================================================
-	// Witch Doctor: Maledict
+	// Witch Doctor: Maledict(DOTA1)
 	//=================================================================================================================
 	"witch_doctor_maledict"
 	{
@@ -9603,16 +9603,16 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"30 26 22 18"
+		"AbilityCooldown"				"35"
 		"AbilityDuration"				"12.0"
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"12 18 24 30"
+		"AbilityDamage"					"5 10 15 20"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"105 110 115 120"
+		"AbilityManaCost"				"120"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -9646,7 +9646,7 @@
 	}
 	
 	//=================================================================================================================
-	// Witch Doctor: Death Ward
+	// Witch Doctor: Death Ward(DOTA1)
 	//=================================================================================================================
 	"witch_doctor_death_ward"
 	{
@@ -9662,7 +9662,7 @@
 		"FightRecapLevel"				"2"
 		"AbilitySound"					"Hero_WitchDoctor.Death_WardBuild"
 
-		"HasShardUpgrade"			"1"
+		"HasShardUpgrade"			"0"
 		"HasScepterUpgrade"			"1"
 
 		"AbilityDraftUltShardAbility"		"witch_doctor_voodoo_switcheroo"
@@ -9676,7 +9676,7 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"70.0"
+		"AbilityCooldown"				"80.0"
 		"AbilityChannelTime"			"8.0"
 
 		// Cost
@@ -9690,7 +9690,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"85 140 195"
+				"damage"					"60 90 120"
 				"LinkedSpecialBonus"	"special_bonus_unique_witch_doctor_5"
 				"CalculateSpellDamageTooltip"	"0"
 			}
@@ -9703,8 +9703,8 @@
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"bounce_radius"				"650 650 650"
-				"RequiresScepter"		"1"
+				"bounce_radius"				"0 650 650"
+				"RequiresScepter"		"0"
 			}
 			"04"
 			{
